@@ -7,10 +7,10 @@ apt install -y mariadb-server
 service mysql start
 
 # create database with its tables, user and grant user privileges
-mysql -u root < info.sql
+mysql -u root < /honepot-project/Database/info.sql
 
 # change config file for logging
-cp -f 50-server.cnf /etc/mysql/mariadb.conf.d/
+cp -f /honepot-project/Database/50-server.cnf /etc/mysql/mariadb.conf.d/
 
 # restart service
 service mysql restart
@@ -25,4 +25,4 @@ service mysql restart
 mysql -u root info -e 'select * from user;'
 
 # DELETE FOR DEPLOYMENT
-nano /var/log/mysql/mysql.log
+cat /var/log/mysql/mysql.log
