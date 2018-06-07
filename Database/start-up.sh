@@ -25,4 +25,4 @@ service mysql restart
 mysql -u root info -e 'select * from user;'
 
 # DELETE FOR DEPLOYMENT
-cat /var/log/mysql/mysql.log
+ls /var/log/mysql/
