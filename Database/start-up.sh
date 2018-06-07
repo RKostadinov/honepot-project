@@ -20,9 +20,3 @@ mysql -u root -e 'SET GLOBAL general_log = 'ON';'
 
 # restart service
 service mysql restart
-
-# DELETE FOR DEPLOYMENT
-mysql -u root info -e 'select * from user;'
-
-# DELETE FOR DEPLOYMENT
-ls /var/log/mysql/
