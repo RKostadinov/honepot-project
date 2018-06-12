@@ -20,5 +20,3 @@ mysql -u root -e 'SET GLOBAL general_log = 'ON';'
 
 # restart service
 service mysql restart
-
-sleep 9999999999999999999999999999
