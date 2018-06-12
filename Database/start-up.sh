@@ -16,3 +16,4 @@ mysql -u root -e 'SET GLOBAL general_log = 'ON';'
 service mysql restart
 
 ls /var/log/mysql/
+mysql -u root info -e 'SELECT * FROM USER;'
