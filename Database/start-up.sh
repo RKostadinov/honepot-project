@@ -4,7 +4,7 @@
 apt install -y mariadb-server
 
 # start service
-#service mysql start
+service mysql start
 
 # create database with its tables, user and grant user privileges
 mysql -u root < /honepot-project/Database/info.sql
