@@ -16,6 +16,3 @@ EXPOSE 3306
 
 # Run start-up.sh when the container launches
 CMD ["/honepot-project/Database/start-up.sh"]
-
-# Keep container running
-CMD tail -f /dev/null

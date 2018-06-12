@@ -20,3 +20,6 @@ mysql -u root -e 'SET GLOBAL general_log = 'ON';'
 
 # restart service
 service mysql restart
+
+# Keep container running
+tail -f /dev/null
