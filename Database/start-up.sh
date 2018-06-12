@@ -1,11 +1,5 @@
 #!/bin/sh
 
-# install dependencies
-apt install -y mariadb-server
-
-# start service
-service mysql start
-
 # create database with its tables, user and grant user privileges
 mysql -u root < /honepot-project/Database/info.sql
 
@@ -20,4 +14,3 @@ mysql -u root -e 'SET GLOBAL general_log = 'ON';'
 
 # restart service
 #service mysql restart
-ls /var/log/mysql/
