@@ -153,8 +153,8 @@
                                         <td>Domain Controller</td>
                                         <td>
                                             <div>
-                                                <button class="btn btn-warning">Restart</button>
-                                                <button class="btn btn-danger">Shut Down</button>
+                                                <button onclick="location.href='/servermanager.php?server=dc&action=restart';" class="btn btn-warning">Restart</button>
+                                                <button onclick="location.href='/servermanager.php?server=dc&action=shutdown';" class="btn btn-danger">Shut Down</button>
                                             </div>
                                         </td>
                                         <td><span class="badge bg-green">OK</span></td>
@@ -163,8 +163,8 @@
                                         <td>Database</td>
                                         <td>
                                             <div>
-                                                <button class="btn btn-warning">Restart</button>
-                                                <button class="btn btn-danger">Shut Down</button>
+                                                <button onclick="location.href='/servermanager.php?server=db&action=restart';" class="btn btn-warning">Restart</button>
+                                                <button onclick="location.href='/servermanager.php?server=db&action=shutdown';" class="btn btn-danger">Shut Down</button>
                                             </div>
 
                                         </td>
@@ -174,8 +174,8 @@
                                         <td>Main Website</td>
                                         <td>
                                             <div>
-                                                <button class="btn btn-warning">Restart</button>
-                                                <button class="btn btn-danger">Shut Down</button>
+                                                <button onclick="location.href='/servermanager.php?server=web&action=restart';" class="btn btn-warning">Restart</button>
+                                                <button onclick="location.href='/servermanager.php?server=web&action=shutdown';" class="btn btn-danger">Shut Down</button>
                                             </div>
 
                                         </td>
@@ -185,8 +185,8 @@
                                         <td>Firewall</td>
                                         <td>
                                             <div>
-                                                <button class="btn btn-warning">Restart</button>
-                                                <button class="btn btn-danger">Shut Down</button>
+                                                <button onclick="location.href='/servermanager.php?server=fw&action=restart';" class="btn btn-warning">Restart</button>
+                                                <button onclick="location.href='/servermanager.php?server=fw&action=shutdown';" class="btn btn-danger">Shut Down</button>
                                             </div>
 
                                         </td>
