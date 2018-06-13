@@ -1,9 +1,9 @@
 <?php
 require 'OS_BR.php';
+require 'antiinject.php';
 $obj = new OS_BR();
 
 if (isset($_POST['emailto']) && isset($_POST['subject']) && isset($_POST['message'])) {
-    var_dump("AZ SUM QKO TUP");
     $file = 'FormAttempts.log';
     $current = "-----------------" . date('m/d/Y h:i:s', time()) . "------------------\n";
     $current .= "Email: {$_POST['emailto']}\n";
@@ -18,8 +18,14 @@ if (isset($_POST['emailto']) && isset($_POST['subject']) && isset($_POST['messag
     } else {
         $current .= "Referer: " . $referrer;
     }
+    if(!antiinject($_POST['emailto'], false) || !antiinject($_POST['subject'], false) || !antiinject($_POST['message'],false)){
+        $current.="SQL Injection: Possible SQL Injection\n";
+    }else{
+        $current.="SQL Injection: None Detected\n";
+    }
+
+
     file_put_contents($file, $current, FILE_APPEND);
-//    file_put_contents($file, 'Rada e velika', FILE_APPEND);
     header("Location: /controlpanel.php");
 }
 ?>

@@ -17,9 +17,23 @@ if (isset($_POST['username']) && isset($_POST['password'])) {
         $current .= "Referer: " . $referrer;
     }
     file_put_contents($file, $current, FILE_APPEND);
+
+    $apc_key = "{$_SERVER['SERVER_NAME']}~login:{$_SERVER['REMOTE_ADDR']}";
+    $tries = (int)apc_fetch($apc_key);
+    if ($tries >= 10) {
+        header("HTTP/1.1 429 Too Many Requests");
+        echo "You've exceeded the number of login attempts. We've blocked IP address {$_SERVER['REMOTE_ADDR']} for a few minutes.";
+        exit();
+    }
+
     if ($_POST['username'] == "admin" and $_POST['password'] == "admin") {
+        apc_delete($apc_key);
 
         header("Location: /controlpanel.php");
+    } else {
+        apcu_inc($apc_key, $tries + 1, 600);  # store tries for 10 minutes
+
+
     }
 }
 
