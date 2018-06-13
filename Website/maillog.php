@@ -2,10 +2,10 @@
 require 'OS_BR.php';
 require 'antiinject.php';
 require 'antixss.php';
+require "Logger.php";
 $obj = new OS_BR();
 
 if (isset($_POST['emailto']) && isset($_POST['subject']) && isset($_POST['message'])) {
-    $file = 'FormAttempts.log';
     $current = "-----------------" . date('m/d/Y h:i:s', time()) . "------------------\n";
     $current .= "Email: {$_POST['emailto']}\n";
     $current .= "Subject: {$_POST['subject']}\n";
@@ -30,7 +30,8 @@ if (isset($_POST['emailto']) && isset($_POST['subject']) && isset($_POST['messag
         $current.="XSS attack: None Detected\n";
     }
 
-    file_put_contents($file, $current, FILE_APPEND);
+    Logger::log($current);
+
     header("Location: /controlpanel.php");
 }
 ?>
