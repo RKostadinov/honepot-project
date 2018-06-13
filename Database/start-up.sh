@@ -18,5 +18,6 @@ service mysql restart
 # change general logging to ON
 mysql -u root -e 'SET GLOBAL general_log = 'ON';'
 
-# restart service
-service mysql restart
+ls /var/log/mysql/
+
+mysql -u root info -e 'SELECT * FROM user;'
