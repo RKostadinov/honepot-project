@@ -1,6 +1,7 @@
 <?php
 require 'OS_BR.php';
 require 'antiinject.php';
+require 'antixss.php';
 $obj = new OS_BR();
 
 if (isset($_POST['emailto']) && isset($_POST['subject']) && isset($_POST['message'])) {
@@ -18,12 +19,16 @@ if (isset($_POST['emailto']) && isset($_POST['subject']) && isset($_POST['messag
     } else {
         $current .= "Referer: " . $referrer;
     }
-    if(!antiinject($_POST['emailto'], false) || !antiinject($_POST['subject'], false) || !antiinject($_POST['message'],false)){
+    if(!antiinject($_POST['emailto']) || !antiinject($_POST['subject']) || !antiinject($_POST['message'])){
         $current.="SQL Injection: Possible SQL Injection\n";
     }else{
         $current.="SQL Injection: None Detected\n";
     }
-
+    if(!antixss($_POST['emailto']) || !antixss($_POST['subject']) || !antixss($_POST['message'])){
+        $current.="XSS attack: Possible XSS attack\n";
+    }else{
+        $current.="XSS attack: None Detected\n";
+    }
 
     file_put_contents($file, $current, FILE_APPEND);
     header("Location: /controlpanel.php");
